@@ -1,15 +1,17 @@
-const BASE_URL = "http://localhost:3000/api";
+import axios from "axios";
+import { User } from "../types/user";
+import { Product } from "../types/product";
 
-export const fetchData = async <T>(endpoint: string): Promise<T> =>{
-    try {
-        const response = await fetch(`${BASE_URL}${endpoint}`);
-        if (!response.ok) {
-            throw new Error(`Error ${response.status}: ${response.statusText}`);    
-        }
-        const data: T = await response.json();
-        return data;
-    } catch (error) {
-        console.error("Error al obtener los datos:", error);
-        throw error;
-    }
+const api = axios.create({
+    baseURL: "http://localhost:3000/api"
+});
+
+export const getUserById = async (userId:string): Promise<User> => {
+    const response = await api.get(`/user/${userId}`)
+    return response.data
 };
+
+export const getProducts = async (userId:string) : Promise<Product[]> => {
+    const response = await api.get(`/products/${userId}`);
+    return response.data
+}

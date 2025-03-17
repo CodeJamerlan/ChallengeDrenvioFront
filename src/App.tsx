@@ -11,8 +11,9 @@ function App() {
         <LateralMenu></LateralMenu>
       </div>
       <div className={styles.datacontainer}>
-        <UserInfo></UserInfo>
-        <TableProducts></TableProducts>
+        <UserInfo userId={'67b885d2016b104d63a75922'}></UserInfo>
+
+        <TableProducts userId={'67b885d2016b104d63a75922'}></TableProducts>
 
       </div>
     </div>

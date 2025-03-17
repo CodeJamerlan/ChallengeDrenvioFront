@@ -1,0 +1,12 @@
+.lateralmenucontainer{
+    background-color: var(--primary-900);
+    min-height: 900px;
+
+}
+.menu{
+    justify-self: center;
+    width: -webkit-fill-available;
+    border-radius: 0px;
+    background-color: transparent;
+    border-color: transparent;
+}

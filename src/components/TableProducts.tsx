@@ -2,7 +2,7 @@ import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { useEffect, useState } from 'react';
 import { Product } from '../types/product';
-import { getProducts } from '../services/apiService';
+import { getProductsById } from '../services/apiService';
 
 
 const TableProducts = ({userId} : {userId:string}) => {
@@ -10,23 +10,31 @@ const TableProducts = ({userId} : {userId:string}) => {
 
     useEffect(() => {
       const fetchData = async() => {
-        const data = await getProducts(userId);
+        const data = await getProductsById(userId);
         setProducts(data)
       }
       fetchData();
     },[])
 
+    const formatCurrency = (value:number) => {
+      return value.toLocaleString('en-US', {style:'currency', currency:'USD'});
+    }
+
+    const priceBodyTemplate = (product: Product) => {
+      return formatCurrency(product.price);
+    }
+
     return (
       <div>
         <div>
-          <h1>Productos</h1>
+          <h1>Articulos</h1>
         </div>
         <div>
           <DataTable value={products} tableStyle={{ minWidth: '50rem' }}>
-            <Column field="code" header="Code"></Column>
-            <Column field="name" header="Name"></Column>
-            <Column field="category" header="Category"></Column>
-            <Column field="quantity" header="Quantity"></Column>
+            <Column field="name" header="Nombre"></Column>
+            <Column field="price" header="Precio" body={priceBodyTemplate}></Column>
+            <Column field="description" header="Descripcion"></Column>
+            <Column field="stock" header="Inventario"></Column>
           </DataTable>
         </div>
       </div>

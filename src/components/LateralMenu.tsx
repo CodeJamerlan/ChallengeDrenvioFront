@@ -1,19 +1,20 @@
 
 import { Menu } from 'primereact/menu';
 import { MenuItem } from 'primereact/menuitem';
-import  styles  from './LateralMenu.module.css'
+import { useNavigate } from 'react-router-dom';
 
 export default function LateralMenu() {
-
-    let items: MenuItem[] = [
-        {label: 'Articulos'},
-        {label: 'Subida'}
-    ]
+  const navigate = useNavigate();
+  const items: MenuItem[] = [
+    {label: 'Articulos', command:() => navigate('/Articulos')},
+    {label: 'Subida', command:() => navigate('/Subida')}
+  ];
     return (
-        <div className={styles.lateralmenucontainer}>
+        <div>
           <h1>Menu</h1>
           <Menu model={items} />
         </div>
+        
       )
 
 }

@@ -25,7 +25,7 @@ const TableProducts = ({userId} : {userId:string}) => {
     }
 
     return (
-      <div>
+      <div style={{ width: '96%', justifyContent: 'center', display: 'inline-grid' }}>
         <div>
           <h1>Articulos</h1>
         </div>

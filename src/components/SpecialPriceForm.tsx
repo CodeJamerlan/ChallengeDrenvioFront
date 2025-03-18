@@ -47,7 +47,7 @@ export default function SpecialPriceForm() {
     })) 
 
     return (
-        <div>
+        <div style={{ width: '70%', justifyContent: 'center', display: 'inline-grid' }}>
             <h1>Crear un nuevo Precio Especial</h1>
             <div>
                 <form className="p-fluid">

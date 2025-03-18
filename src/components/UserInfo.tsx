@@ -22,7 +22,7 @@ const UserInfo = ({ userId } : {userId : string}) => {
 
   return (
     <div className={styles.containerinfouser}>
-        <h3>Usuario: {user?.name}</h3>
+        <h3 className={styles.usertitle}>Usuario: {user?.name}</h3>
     </div>
   )
 };

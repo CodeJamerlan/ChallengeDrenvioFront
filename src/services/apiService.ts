@@ -4,7 +4,7 @@ import { Product } from "../types/product";
 import { SpecialPrice } from "../types/specialPrice";
 
 const api = axios.create({
-    baseURL: "http://localhost:3000/api",
+    baseURL: "https://challenge-drenvio-back.vercel.app/api",
     headers: {
         "Content-Type": "application/json",
     },
